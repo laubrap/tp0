@@ -24,9 +24,7 @@ int main(void)
 
 	config = iniciar_config();
 	config=config_create("cliente.config");
-	ip=config_get_string_value (config, "ip");
-	puerto=config_get_string_value (config, "puerto");
-	valor=config_get_string_value (config, "valor");
+	
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
 
