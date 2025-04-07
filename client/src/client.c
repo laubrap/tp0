@@ -15,15 +15,18 @@ int main(void)
 	/* ---------------- LOGGING ---------------- */
 
 	logger = iniciar_logger();
-
+	logger = log_create("tp0.log", "tp0Loggins",true,LOG_LEVEL_INFO);
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
-
+	log_info(logger, "Soy un Log");
 
 	/* ---------------- ARCHIVOS DE CONFIGURACION ---------------- */
 
 	config = iniciar_config();
-
+	config=config_create("cliente.config");
+	ip=config_get_string_value (config, "ip");
+	puerto=config_get_string_value (config, "puerto");
+	valor=config_get_string_value (config, "valor");
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
 
@@ -97,4 +100,6 @@ void terminar_programa(int conexion, t_log* logger, t_config* config)
 {
 	/* Y por ultimo, hay que liberar lo que utilizamos (conexion, log y config) 
 	  con las funciones de las commons y del TP mencionadas en el enunciado */
+	  log_destroy(logger);
+	  config_destroy(config);
 }
