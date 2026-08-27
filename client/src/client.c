@@ -9,6 +9,8 @@ int main(void)
 	char* puerto;
 	char* valor;
 
+	int randomVariable
+
 	t_log* logger;
 	t_config* config;
 
